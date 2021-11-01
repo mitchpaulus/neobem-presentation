@@ -1,0 +1,248 @@
+Version,
+  9;
+
+
+Version,
+  2;
+
+Version,
+  2;
+
+Version,
+  3;
+
+Version,
+  4;
+
+Version,
+  5;
+
+Version,
+  6;
+
+Version,
+  7;
+
+Version,
+  8;
+
+Version,
+  9;
+
+Version,
+  10;
+
+Version,
+  11;
+
+Version,
+  12;
+
+Zone,
+  Zone starting at 0 m,       ! Name RefList: [ZoneNames, OutFaceEnvNames, ZoneAndZoneListNames, AirflowNetworkNodeAndZoneNames], REQ, #1
+  0,                          ! Direction of Relative North {deg}, Def: 0, #2
+  0,                          ! X Origin {m}, Def: 0, #3
+  0,                          ! Y Origin {m}, Def: 0, #4
+  0,                          ! Z Origin {m}, Def: 0, #5
+  1,                          ! Type Def: 1, #6
+  1,                          ! Multiplier Def: 1, #7
+  autocalculate,              ! Ceiling Height {m}, Def: autocalculate, AC, #8
+  autocalculate,              ! Volume {m3}, Def: autocalculate, AC, #9
+  autocalculate,              ! Floor Area {m2}, Def: autocalculate, AC, #10
+  ,                           ! Zone Inside Convection Algorithm [Simple, TARP, CeilingDiffuser, AdaptiveConvectionAlgorithm, TrombeWall], #11
+  ,                           ! Zone Outside Convection Algorithm [SimpleCombined, TARP, DOE-2, MoWiTT, AdaptiveConvectionAlgorithm], #12
+  Yes;                        ! Part of Total Floor Area Def: Yes, [Yes, No], #13
+
+Zone,
+  Zone starting at 10 m,      ! Name RefList: [ZoneNames, OutFaceEnvNames, ZoneAndZoneListNames, AirflowNetworkNodeAndZoneNames], REQ, #1
+  0,                          ! Direction of Relative North {deg}, Def: 0, #2
+  10,                         ! X Origin {m}, Def: 0, #3
+  0,                          ! Y Origin {m}, Def: 0, #4
+  0,                          ! Z Origin {m}, Def: 0, #5
+  1,                          ! Type Def: 1, #6
+  1,                          ! Multiplier Def: 1, #7
+  autocalculate,              ! Ceiling Height {m}, Def: autocalculate, AC, #8
+  autocalculate,              ! Volume {m3}, Def: autocalculate, AC, #9
+  autocalculate,              ! Floor Area {m2}, Def: autocalculate, AC, #10
+  ,                           ! Zone Inside Convection Algorithm [Simple, TARP, CeilingDiffuser, AdaptiveConvectionAlgorithm, TrombeWall], #11
+  ,                           ! Zone Outside Convection Algorithm [SimpleCombined, TARP, DOE-2, MoWiTT, AdaptiveConvectionAlgorithm], #12
+  Yes;                        ! Part of Total Floor Area Def: Yes, [Yes, No], #13
+
+Zone,
+  Zone starting at 20 m,      ! Name RefList: [ZoneNames, OutFaceEnvNames, ZoneAndZoneListNames, AirflowNetworkNodeAndZoneNames], REQ, #1
+  0,                          ! Direction of Relative North {deg}, Def: 0, #2
+  20,                         ! X Origin {m}, Def: 0, #3
+  0,                          ! Y Origin {m}, Def: 0, #4
+  0,                          ! Z Origin {m}, Def: 0, #5
+  1,                          ! Type Def: 1, #6
+  1,                          ! Multiplier Def: 1, #7
+  autocalculate,              ! Ceiling Height {m}, Def: autocalculate, AC, #8
+  autocalculate,              ! Volume {m3}, Def: autocalculate, AC, #9
+  autocalculate,              ! Floor Area {m2}, Def: autocalculate, AC, #10
+  ,                           ! Zone Inside Convection Algorithm [Simple, TARP, CeilingDiffuser, AdaptiveConvectionAlgorithm, TrombeWall], #11
+  ,                           ! Zone Outside Convection Algorithm [SimpleCombined, TARP, DOE-2, MoWiTT, AdaptiveConvectionAlgorithm], #12
+  Yes;                        ! Part of Total Floor Area Def: Yes, [Yes, No], #13
+
+Zone,
+  Zone starting at 30 m,      ! Name RefList: [ZoneNames, OutFaceEnvNames, ZoneAndZoneListNames, AirflowNetworkNodeAndZoneNames], REQ, #1
+  0,                          ! Direction of Relative North {deg}, Def: 0, #2
+  30,                         ! X Origin {m}, Def: 0, #3
+  0,                          ! Y Origin {m}, Def: 0, #4
+  0,                          ! Z Origin {m}, Def: 0, #5
+  1,                          ! Type Def: 1, #6
+  1,                          ! Multiplier Def: 1, #7
+  autocalculate,              ! Ceiling Height {m}, Def: autocalculate, AC, #8
+  autocalculate,              ! Volume {m3}, Def: autocalculate, AC, #9
+  autocalculate,              ! Floor Area {m2}, Def: autocalculate, AC, #10
+  ,                           ! Zone Inside Convection Algorithm [Simple, TARP, CeilingDiffuser, AdaptiveConvectionAlgorithm, TrombeWall], #11
+  ,                           ! Zone Outside Convection Algorithm [SimpleCombined, TARP, DOE-2, MoWiTT, AdaptiveConvectionAlgorithm], #12
+  Yes;                        ! Part of Total Floor Area Def: Yes, [Yes, No], #13
+
+Zone,
+  Zone starting at 40 m,      ! Name RefList: [ZoneNames, OutFaceEnvNames, ZoneAndZoneListNames, AirflowNetworkNodeAndZoneNames], REQ, #1
+  0,                          ! Direction of Relative North {deg}, Def: 0, #2
+  40,                         ! X Origin {m}, Def: 0, #3
+  0,                          ! Y Origin {m}, Def: 0, #4
+  0,                          ! Z Origin {m}, Def: 0, #5
+  1,                          ! Type Def: 1, #6
+  1,                          ! Multiplier Def: 1, #7
+  autocalculate,              ! Ceiling Height {m}, Def: autocalculate, AC, #8
+  autocalculate,              ! Volume {m3}, Def: autocalculate, AC, #9
+  autocalculate,              ! Floor Area {m2}, Def: autocalculate, AC, #10
+  ,                           ! Zone Inside Convection Algorithm [Simple, TARP, CeilingDiffuser, AdaptiveConvectionAlgorithm, TrombeWall], #11
+  ,                           ! Zone Outside Convection Algorithm [SimpleCombined, TARP, DOE-2, MoWiTT, AdaptiveConvectionAlgorithm], #12
+  Yes;                        ! Part of Total Floor Area Def: Yes, [Yes, No], #13
+
+Zone,
+  Zone starting at 50 m,      ! Name RefList: [ZoneNames, OutFaceEnvNames, ZoneAndZoneListNames, AirflowNetworkNodeAndZoneNames], REQ, #1
+  0,                          ! Direction of Relative North {deg}, Def: 0, #2
+  50,                         ! X Origin {m}, Def: 0, #3
+  0,                          ! Y Origin {m}, Def: 0, #4
+  0,                          ! Z Origin {m}, Def: 0, #5
+  1,                          ! Type Def: 1, #6
+  1,                          ! Multiplier Def: 1, #7
+  autocalculate,              ! Ceiling Height {m}, Def: autocalculate, AC, #8
+  autocalculate,              ! Volume {m3}, Def: autocalculate, AC, #9
+  autocalculate,              ! Floor Area {m2}, Def: autocalculate, AC, #10
+  ,                           ! Zone Inside Convection Algorithm [Simple, TARP, CeilingDiffuser, AdaptiveConvectionAlgorithm, TrombeWall], #11
+  ,                           ! Zone Outside Convection Algorithm [SimpleCombined, TARP, DOE-2, MoWiTT, AdaptiveConvectionAlgorithm], #12
+  Yes;                        ! Part of Total Floor Area Def: Yes, [Yes, No], #13
+
+Zone,
+  Zone starting at 60 m,      ! Name RefList: [ZoneNames, OutFaceEnvNames, ZoneAndZoneListNames, AirflowNetworkNodeAndZoneNames], REQ, #1
+  0,                          ! Direction of Relative North {deg}, Def: 0, #2
+  60,                         ! X Origin {m}, Def: 0, #3
+  0,                          ! Y Origin {m}, Def: 0, #4
+  0,                          ! Z Origin {m}, Def: 0, #5
+  1,                          ! Type Def: 1, #6
+  1,                          ! Multiplier Def: 1, #7
+  autocalculate,              ! Ceiling Height {m}, Def: autocalculate, AC, #8
+  autocalculate,              ! Volume {m3}, Def: autocalculate, AC, #9
+  autocalculate,              ! Floor Area {m2}, Def: autocalculate, AC, #10
+  ,                           ! Zone Inside Convection Algorithm [Simple, TARP, CeilingDiffuser, AdaptiveConvectionAlgorithm, TrombeWall], #11
+  ,                           ! Zone Outside Convection Algorithm [SimpleCombined, TARP, DOE-2, MoWiTT, AdaptiveConvectionAlgorithm], #12
+  Yes;                        ! Part of Total Floor Area Def: Yes, [Yes, No], #13
+
+Zone,
+  Zone starting at 70 m,      ! Name RefList: [ZoneNames, OutFaceEnvNames, ZoneAndZoneListNames, AirflowNetworkNodeAndZoneNames], REQ, #1
+  0,                          ! Direction of Relative North {deg}, Def: 0, #2
+  70,                         ! X Origin {m}, Def: 0, #3
+  0,                          ! Y Origin {m}, Def: 0, #4
+  0,                          ! Z Origin {m}, Def: 0, #5
+  1,                          ! Type Def: 1, #6
+  1,                          ! Multiplier Def: 1, #7
+  autocalculate,              ! Ceiling Height {m}, Def: autocalculate, AC, #8
+  autocalculate,              ! Volume {m3}, Def: autocalculate, AC, #9
+  autocalculate,              ! Floor Area {m2}, Def: autocalculate, AC, #10
+  ,                           ! Zone Inside Convection Algorithm [Simple, TARP, CeilingDiffuser, AdaptiveConvectionAlgorithm, TrombeWall], #11
+  ,                           ! Zone Outside Convection Algorithm [SimpleCombined, TARP, DOE-2, MoWiTT, AdaptiveConvectionAlgorithm], #12
+  Yes;                        ! Part of Total Floor Area Def: Yes, [Yes, No], #13
+
+Zone,
+  Zone starting at 80 m,      ! Name RefList: [ZoneNames, OutFaceEnvNames, ZoneAndZoneListNames, AirflowNetworkNodeAndZoneNames], REQ, #1
+  0,                          ! Direction of Relative North {deg}, Def: 0, #2
+  80,                         ! X Origin {m}, Def: 0, #3
+  0,                          ! Y Origin {m}, Def: 0, #4
+  0,                          ! Z Origin {m}, Def: 0, #5
+  1,                          ! Type Def: 1, #6
+  1,                          ! Multiplier Def: 1, #7
+  autocalculate,              ! Ceiling Height {m}, Def: autocalculate, AC, #8
+  autocalculate,              ! Volume {m3}, Def: autocalculate, AC, #9
+  autocalculate,              ! Floor Area {m2}, Def: autocalculate, AC, #10
+  ,                           ! Zone Inside Convection Algorithm [Simple, TARP, CeilingDiffuser, AdaptiveConvectionAlgorithm, TrombeWall], #11
+  ,                           ! Zone Outside Convection Algorithm [SimpleCombined, TARP, DOE-2, MoWiTT, AdaptiveConvectionAlgorithm], #12
+  Yes;                        ! Part of Total Floor Area Def: Yes, [Yes, No], #13
+
+Zone,
+  Zone starting at 90 m,      ! Name RefList: [ZoneNames, OutFaceEnvNames, ZoneAndZoneListNames, AirflowNetworkNodeAndZoneNames], REQ, #1
+  0,                          ! Direction of Relative North {deg}, Def: 0, #2
+  90,                         ! X Origin {m}, Def: 0, #3
+  0,                          ! Y Origin {m}, Def: 0, #4
+  0,                          ! Z Origin {m}, Def: 0, #5
+  1,                          ! Type Def: 1, #6
+  1,                          ! Multiplier Def: 1, #7
+  autocalculate,              ! Ceiling Height {m}, Def: autocalculate, AC, #8
+  autocalculate,              ! Volume {m3}, Def: autocalculate, AC, #9
+  autocalculate,              ! Floor Area {m2}, Def: autocalculate, AC, #10
+  ,                           ! Zone Inside Convection Algorithm [Simple, TARP, CeilingDiffuser, AdaptiveConvectionAlgorithm, TrombeWall], #11
+  ,                           ! Zone Outside Convection Algorithm [SimpleCombined, TARP, DOE-2, MoWiTT, AdaptiveConvectionAlgorithm], #12
+  Yes;                        ! Part of Total Floor Area Def: Yes, [Yes, No], #13
+
+! Min Fields: 10
+AirLoopHVAC,
+  AHU-1,                      ! Name RefList: [AirPrimaryLoops], REQ, #1
+  ,                           ! Controller List Name [ControllerLists], #2
+  AHU-1 Availability Manager,  ! Availability Manager List Name [SystemAvailabilityManagerLists], #3
+  0,                          ! Design Supply Air Flow Rate {m3/s}, Def: 0, AS, #4
+  AHU-1 Branches,             ! Branch List Name [BranchLists], REQ, #5
+  ,                           ! Connector List Name [ConnectorLists], #6
+  ,                           ! Supply Side Inlet Node Name REQ, #7
+  ,                           ! Demand Side Outlet Node Name #8
+  ,                           ! Demand Side Inlet Node Names REQ, #9
+  ,                           ! Supply Side Outlet Node Names REQ, #10
+  1.0;                        ! Design Return Air Flow Fraction of Supply Air Flow Def: 1.0, #11
+
+! Min Fields: 9
+Fan:OnOff,
+  AHU-1 Fan,                  ! Name RefList: [Fans, FansCVandOnOff, FansOnOff, FansOnOffandVAV, FansCVandOnOffandVAV], REQ, #1
+  ,                           ! Availability Schedule Name [ScheduleNames], #2
+  0.6,                        ! Fan Total Efficiency Def: 0.6, #3
+  ,                           ! Pressure Rise {Pa}, REQ, #4
+  ,                           ! Maximum Flow Rate {m3/s}, AS, #5
+  0.8,                        ! Motor Efficiency Def: 0.8, #6
+  1.0,                        ! Motor In Airstream Fraction Def: 1.0, #7
+  ,                           ! Air Inlet Node Name REQ, #8
+  ,                           ! Air Outlet Node Name REQ, #9
+  ,                           ! Fan Power Ratio Function of Speed Ratio Curve Name [UnivariateFunctions], #10
+  ,                           ! Fan Efficiency Ratio Function of Speed Ratio Curve Name [UnivariateFunctions], #11
+  General;                    ! End-Use Subcategory Def: General, #12
+
+! Min Fields: 10
+AirLoopHVAC,
+  AHU-2,                      ! Name RefList: [AirPrimaryLoops], REQ, #1
+  ,                           ! Controller List Name [ControllerLists], #2
+  AHU-2 Availability Manager,  ! Availability Manager List Name [SystemAvailabilityManagerLists], #3
+  0,                          ! Design Supply Air Flow Rate {m3/s}, Def: 0, AS, #4
+  AHU-2 Branches,             ! Branch List Name [BranchLists], REQ, #5
+  ,                           ! Connector List Name [ConnectorLists], #6
+  ,                           ! Supply Side Inlet Node Name REQ, #7
+  ,                           ! Demand Side Outlet Node Name #8
+  ,                           ! Demand Side Inlet Node Names REQ, #9
+  ,                           ! Supply Side Outlet Node Names REQ, #10
+  1.0;                        ! Design Return Air Flow Fraction of Supply Air Flow Def: 1.0, #11
+
+! Min Fields: 9
+Fan:OnOff,
+  AHU-2 Fan,                  ! Name RefList: [Fans, FansCVandOnOff, FansOnOff, FansOnOffandVAV, FansCVandOnOffandVAV], REQ, #1
+  ,                           ! Availability Schedule Name [ScheduleNames], #2
+  0.6,                        ! Fan Total Efficiency Def: 0.6, #3
+  ,                           ! Pressure Rise {Pa}, REQ, #4
+  ,                           ! Maximum Flow Rate {m3/s}, AS, #5
+  0.8,                        ! Motor Efficiency Def: 0.8, #6
+  1.0,                        ! Motor In Airstream Fraction Def: 1.0, #7
+  ,                           ! Air Inlet Node Name REQ, #8
+  ,                           ! Air Outlet Node Name REQ, #9
+  ,                           ! Fan Power Ratio Function of Speed Ratio Curve Name [UnivariateFunctions], #10
+  ,                           ! Fan Efficiency Ratio Function of Speed Ratio Curve Name [UnivariateFunctions], #11
+  General;                    ! End-Use Subcategory Def: General, #12
+

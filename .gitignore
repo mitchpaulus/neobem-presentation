@@ -1,0 +1,11 @@
+.redo
+reveal.js-master/
+index.html
+presentation-standalone.html
+reveal
+
+
+beamer/build/
+beamer/neobem.pdf
+beamer/neobem.tex
+

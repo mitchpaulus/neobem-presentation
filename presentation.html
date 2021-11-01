@@ -1,0 +1,206 @@
+<section id="intro" class="slide level1">
+<h1>Intro</h1>
+<ul>
+<li class="fragment">Command Commissioning</li>
+<li class="fragment">Building Optimization Group</li>
+</ul>
+</section>
+<section id="topics" class="slide level1">
+<h1>Topics</h1>
+<ul>
+<li class="fragment">Neobem</li>
+<li class="fragment">Creating Your own DSL</li>
+</ul>
+</section>
+<section id="existing-solutions" class="slide level1">
+<h1>Existing Solutions</h1>
+<ul>
+<li class="fragment"><p>IDFEditor (Can’t program/parameterize)</p></li>
+<li class="fragment"><p>OpenStudio (Giving up control)</p></li>
+<li class="fragment"><p><code>eppy</code> (Don’t want to use Python)</p></li>
+<li class="fragment"><p>ModelKit (Don’t want to use Ruby)</p></li>
+<li class="fragment"><p>Write in X favorite language?</p>
+<ul>
+<li class="fragment">Death by <code>print</code> statements</li>
+</ul></li>
+</ul>
+</section>
+<section id="design-goals" class="slide level1">
+<h1>Design Goals</h1>
+<ul>
+<li class="fragment">Superset of the IDF file</li>
+<li class="fragment">Conceptually simple</li>
+<li class="fragment">Aesthetically pleasing to read</li>
+</ul>
+</section>
+<section id="what-neobem-is" class="slide level1">
+<h1>What Neobem is</h1>
+<ul>
+<li class="fragment">A language to expressively parameterize an EnergyPlus model</li>
+<li class="fragment">A corresponding compiler</li>
+<li class="fragment">A formatter</li>
+</ul>
+</section>
+<section id="what-neobem-isnt" class="slide level1">
+<h1>What Neobem isn’t</h1>
+<ul>
+<li class="fragment">A GUI program</li>
+<li class="fragment">An EnergyPlus parametric runner</li>
+<li class="fragment">An EnergyPlus linter</li>
+<li class="fragment">A solution to all your energy modeling problems</li>
+</ul>
+</section>
+<section id="language-features" class="slide level1">
+<h1>Language Features</h1>
+<ul>
+<li class="fragment">Functional syntax</li>
+<li class="fragment">Easy data loading</li>
+<li class="fragment">Easy importing</li>
+</ul>
+</section>
+<section id="variable-assignment-and-replacements" class="slide level1">
+<h1>Variable Assignment and Replacements</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode neobem"><code class="sourceCode neobem"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># variable_name = expression</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>my_number = <span class="fl">10</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>a_string = <span class="st">&#39;Hello, World!&#39;</span></span></code></pre></div>
+</section>
+<section id="variable-assignment-and-replacements-1" class="slide level1">
+<h1>Variable Assignment and Replacements</h1>
+<div class="sourceCode" id="cb2"><pre class="sourceCode neobem"><code class="sourceCode neobem"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>version = <span class="st">&#39;9.3&#39;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Version,</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  &lt;version&gt;;</span></code></pre></div>
+</section>
+<section id="functions-and-templates" class="slide level1">
+<h1>Functions and Templates</h1>
+<div class="sourceCode" id="cb3"><pre class="sourceCode neobem"><code class="sourceCode neobem"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>add_2 = \ num { num + <span class="fl">2</span> }</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Version,</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="fu">add_2</span>(<span class="fl">7</span>)&gt;;</span></code></pre></div>
+</section>
+<section id="functions-and-templates-1" class="slide level1">
+<h1>Functions and Templates</h1>
+<div class="sourceCode" id="cb4"><pre class="sourceCode neobem"><code class="sourceCode neobem"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>const_temp_schedule = \ name value lower upper {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Schedule:Constant,</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  &lt;name&gt; Schedule, <span class="co">! Name</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  &lt;name&gt; Limits,   <span class="co">! Schedule Type Limits Name</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  &lt;value&gt;;         <span class="co">! Hourly Value</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ScheduleTypeLimits,</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  &lt;name&gt; Limits, <span class="co">! Name</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  &lt;lower&gt;,       <span class="co">! Lower Limit Value</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  &lt;upper&gt;,       <span class="co">! Upper Limit Value</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  Continuous,    <span class="co">! Numeric Type [Continuous, Discrete]</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  Temperature;   <span class="co">! Unit Type</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="kw">print</span> <span class="fu">const_temp_schedule</span>(<span class="st">&#39;Zone Space Temperature&#39;</span>, <span class="fl">22</span>, <span class="fl">20</span>, <span class="fl">24</span>)</span></code></pre></div>
+</section>
+<section id="traditional-data-structures" class="slide level1">
+<h1>Traditional Data Structures</h1>
+<ul>
+<li class="fragment"><p>Lists: <code>[1, 2, 3]</code></p></li>
+<li class="fragment"><p>Associative Arrays (Structures):</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode neobem"><code class="sourceCode neobem"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>my_thing: {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&#39;name&#39;</span>: <span class="st">&#39;Mitch&#39;</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&#39;height (in)&#39;</span>: <span class="fl">75</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&#39;location&#39;</span>: {</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;city&#39;</span>: <span class="st">&#39;Dallas&#39;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;state&#39;</span>: <span class="st">&#39;TX&#39;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div></li>
+<li class="fragment"><p>Booleans: <code>true</code>, <code>false</code>, <code>✓</code>, <code>✗</code></p></li>
+</ul>
+</section>
+<section id="inline-data-tables" class="slide level1">
+<h1>Inline Data Tables</h1>
+<div class="sourceCode" id="cb6"><pre class="sourceCode neobem"><code class="sourceCode neobem"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>zones =</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>________________________________________</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;name&#39;</span>        | <span class="st">&#39;x_origin&#39;</span>  | <span class="st">&#39;y_origin&#39;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>--------------|-------------|-----------</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;Bedroom&#39;</span>     | <span class="fl">0</span>           | <span class="fl">0</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;Living Room&#39;</span> | <span class="fl">10</span>          | <span class="fl">20</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;Kitchen&#39;</span>     | <span class="fl">5</span>           | <span class="fl">12</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>________________________________________</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>zone_template = λ zone {</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="fu">Zone,</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  &lt;zone.<span class="st">&#39;name&#39;</span>&gt;,     <span class="co">! Name</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0</span>,                 <span class="co">! Direction of Relative North {deg}</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  &lt;zone.<span class="st">&#39;x_origin&#39;</span>&gt;, <span class="co">! X Origin {m}</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  &lt;zone.<span class="st">&#39;y_origin&#39;</span>&gt;, <span class="co">! Y Origin {m}</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0</span>,                 <span class="co">! Z Origin {m}</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="fl">1</span>,                 <span class="co">! Type</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="fl">1</span>,                 <span class="co">! Multiplier</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  <span class="cn">autocalculate</span>,     <span class="co">! Ceiling Height {m}</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>  <span class="cn">autocalculate</span>,     <span class="co">! Volume {m3}</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  <span class="cn">autocalculate</span>,     <span class="co">! Floor Area {m2}</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>  ,                  <span class="co">! Zone Inside Convection Algorithm</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>  ,                  <span class="co">! Zone Outside Convection Algorithm</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>  Yes;               <span class="co">! Part of Total Floor Area</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="kw">print</span> <span class="fu">map</span>(zones, zone_template)</span></code></pre></div>
+</section>
+<section id="how-to-create-your-own-language" class="slide level1">
+<h1>How to Create Your Own Language</h1>
+<ul>
+<li class="fragment">Basic Steps:
+<ul>
+<li class="fragment">Lexing</li>
+<li class="fragment">Parsing</li>
+<li class="fragment">Code Generation</li>
+</ul></li>
+</ul>
+</section>
+<section id="skip-to-the-good-parts" class="slide level1">
+<h1>Skip to the Good Parts</h1>
+<p>Use a “Parser-Generator”!</p>
+</section>
+<section id="tools-for-the-first-two-steps" class="slide level1">
+<h1>Tools for the First Two Steps</h1>
+<p><a href="antlr.org">ANTLR: Another tool for language recognition</a></p>
+</section>
+<section id="antlr-grammar-syntax" class="slide level1">
+<h1>ANTLR Grammar Syntax</h1>
+<pre><code></code></pre>
+</section>
+<section id="antlr-targets" class="slide level1">
+<h1>ANTLR Targets</h1>
+<ul>
+<li class="fragment">Java</li>
+<li class="fragment">C# (Neobem)</li>
+<li class="fragment">Python</li>
+<li class="fragment">JavaScript</li>
+<li class="fragment">Go</li>
+<li class="fragment">C++</li>
+<li class="fragment">Swift</li>
+<li class="fragment">PHP</li>
+<li class="fragment">Dart</li>
+</ul>
+</section>
+<section id="using-antlr" class="slide level1">
+<h1>Using ANTLR</h1>
+<p>Typically ‘Walk’ or ‘Visit’ the AST.</p>
+</section>
+<section id="existing-grammars" class="slide level1">
+<h1>Existing Grammars</h1>
+<p><a href="https://github.com/antlr/grammars-v4">https://github.com/antlr/grammars-v4</a></p>
+</section>
+<section id="contributing" class="slide level1">
+<h1>Contributing</h1>
+<ul>
+<li class="fragment">Currently an experimental language, subject to change</li>
+<li class="fragment">Ask Questions on <a href="https://unmethours.com/questions/">Unmet Hours</a> with Tag <code>neobem</code>.</li>
+<li class="fragment">Check out the GitHub page at: <a href="https://github.com/mitchpaulus/neobem">https://github.com/mitchpaulus/neobem</a></li>
+<li class="fragment">Use ‘Discussions’ tab for proposed ideas, Q&amp;A</li>
+</ul>
+</section>
+<section id="other-references" class="slide level1">
+<h1>Other References</h1>
+<ul>
+<li class="fragment"><a href="https://neobem.io">Neobem homepage: neobem.io</a></li>
+<li class="fragment"><a href="https://www.antlr.org/">ANTLR homepage</a></li>
+</ul>
+</section>
