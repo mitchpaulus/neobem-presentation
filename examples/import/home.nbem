@@ -1,0 +1,44 @@
+import 'defaults.nbem'
+
+# import 'https://raw.githubusercontent.com/mitchpaulus/neobem/main/imports/wall_builder.nbem' as b
+import 'builder.nbem' as b
+
+print defaults('Home')
+
+interior = {
+  'Construction': 'Interior Wall',
+  'Boundary Condition': 'Adiabatic',
+  'Sun': 'NoSun',
+  'Wind': 'NoWind',
+}
+
+exterior = {
+  'Construction': 'Exterior Wall',
+  'Boundary Condition': 'Outdoors',
+  'Sun': 'NoSun',
+  'Wind': 'NoWind',
+}
+
+coords =
+────┬─────┬─────────
+'X' │ 'Y' │ 'Type'
+────┼─────┼─────────
+0   │ 0   │ interior
+10  │ 0   │ interior
+10  │ 10  │ interior
+0   │ 10  │ exterior
+────┴─────┴─────────
+
+walls = b@zip(coords, b@shift(coords), λ a b {
+  return {
+    'X1': a.'X',
+    'Y1': a.'Y',
+    'X2': b.'X',
+    'Y2': b.'Y',
+    'Type': a.'Type',
+  }
+}) -> b@with_index(1) |= λ i { i.'item' + { 'Name': 'Wall ' + i.'index', 'Height': 10, 'Zone': 'Zone 1' }  }
+
+log walls
+
+print walls |= b@wall_builder

@@ -1,0 +1,17 @@
+defaults = λ name {
+  Version,
+    9.4;
+
+  ! Min Fields: 8
+  Building,
+    <name>,         ! Name Def: NONE, #1
+    0.0,          ! North Axis {deg}, Def: 0.0, #2
+    Suburbs,      ! Terrain Def: Suburbs, [Country, Suburbs, City, Ocean, Urban], #3
+    0.04,         ! Loads Convergence Tolerance Value {W}, Def: .04, #4
+    0.4,          ! Temperature Convergence Tolerance Value {deltaC}, Def: .4, #5
+    FullExterior, ! Solar Distribution Def: FullExterior, [MinimalShadowing, FullExterior, FullInteriorAndExterior, FullExteriorWithReflections, FullInteriorAndExteriorWithReflections], #6
+    25,           ! Maximum Number of Warmup Days Def: 25, #7
+    1;            ! Minimum Number of Warmup Days Def: 1, #8
+}
+
+export (defaults)
