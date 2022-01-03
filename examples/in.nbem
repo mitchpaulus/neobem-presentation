@@ -1,0 +1,36 @@
+# My commnet that won't show up
+my_version = 9.4 + 1
+
+add_two = λ num { num + 2 }
+
+get_add_a_num = λ num { λ num2 { num + num2 } }
+
+version_template = λ num {
+  Version,
+    <num>;                    ! Just so you know it came from here
+}
+
+ahu1 = {
+  'Name': 'Zone 1',
+  'x origin': 0,
+}
+
+zones =
+─────────┬───────────
+'Name'   │ 'x origin'
+─────────┼───────────
+'Zone 1' │ 0
+'Zone 2' │ 10
+─────────┴───────────
+
+zone_template = λ zone {
+  Zone,
+    <zone.'Name'>,            !Name
+    <zone.'x origin'>;
+}
+
+print zones |> λ zone { zone.'x origin' > 5 } |= zone_template
+
+versions = 1..10
+
+print versions |= version_template
